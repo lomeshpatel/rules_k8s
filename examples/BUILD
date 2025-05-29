@@ -12,26 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library")
-load("@subpar//:subpar.bzl", "par_binary")
-
 package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"])  # Apache 2.0
 
-jsonnet_library(
-    name = "deploy_lib",
-    srcs = ["deployment.libsonnet"],
-)
-
-jsonnet_library(
-    name = "container_lib",
-    srcs = ["container.libsonnet"],
-)
-
-par_binary(
+py_binary(
     name = "e2e_gc",
     srcs = ["e2e_gc.py"],
     main = "e2e_gc.py",
     python_version = "PY3",
+    srcs_version = "PY3",
 )

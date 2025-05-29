@@ -51,9 +51,9 @@ def k8s_repositories():
         http_archive,
         name = "com_github_yaml_pyyaml",
         build_file_content = _com_github_yaml_pyyaml_build_file,
-        sha256 = "e9df8412ddabc9c21b4437ee138875b95ebb32c25f07f962439e16005152e00e",
-        strip_prefix = "pyyaml-5.1.2",
-        urls = ["https://github.com/yaml/pyyaml/archive/5.1.2.zip"],
+        sha256 = "3f11e50a10e70d481fc4c16880a605ee5f955e17eba2673a0bf15f4f40e3f7ef",
+        strip_prefix = "pyyaml-5.4.1",
+        urls = ["https://github.com/yaml/pyyaml/archive/5.4.1.zip"],
     )
 
     # Register the default kubectl toolchain targets for supported platforms
@@ -70,37 +70,38 @@ def k8s_repositories():
     maybe(
         http_archive,
         name = "io_bazel_rules_go",
-        sha256 = "52d0a57ea12139d727883c2fef03597970b89f2cc2a05722c42d1d7d41ec065b",
+        sha256 = "685052b498b6ddfe562ca7a97736741d87916fe536623afb7da2824c0211c369",
         urls = [
-            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.24.13/rules_go-v0.24.13.tar.gz",
-            "https://github.com/bazelbuild/rules_go/releases/download/v0.24.13/rules_go-v0.24.13.tar.gz",
+            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip",
+            "https://github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip",
         ],
     )
 
     maybe(
         http_archive,
         name = "bazel_gazelle",
-        sha256 = "222e49f034ca7a1d1231422cdb67066b885819885c356673cb1f72f748a3c9d4",
+        sha256 = "de69a09dc70417580aabf20a28619bb3ef60d038470c7cf8442fafcf627c21cb",
         urls = [
-            "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.3/bazel-gazelle-v0.22.3.tar.gz",
-            "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.3/bazel-gazelle-v0.22.3.tar.gz",
+            "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.24.0/bazel-gazelle-v0.24.0.tar.gz",
+            "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.24.0/bazel-gazelle-v0.24.0.tar.gz",
         ],
     )
 
     maybe(
         http_archive,
         name = "io_bazel_rules_docker",
-        sha256 = "92779d3445e7bdc79b961030b996cb0c91820ade7ffa7edca69273f404b085d5",
-        strip_prefix = "rules_docker-0.20.0",
-        urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.20.0/rules_docker-v0.20.0.tar.gz"],
+        sha256 = "b1e80761a8a8243d03ebca8845e9cc1ba6c82ce7c5179ce2b295cd36f7e394bf",
+        urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.25.0/rules_docker-v0.25.0.tar.gz"],
     )
 
     maybe(
         http_archive,
         name = "bazel_skylib",
-        sha256 = "7ac0fa88c0c4ad6f5b9ffb5e09ef81e235492c873659e6bb99efb89d11246bcb",
-        strip_prefix = "bazel-skylib-1.0.3",
-        urls = ["https://github.com/bazelbuild/bazel-skylib/archive/1.0.3.tar.gz"],
+        sha256 = "74d544d96f4a5bb630d465ca8bbcfe231e3594e5aae57e1edbf17a6eb3ca2506",
+        urls = [
+            "https://github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
+            "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
+        ],
     )
 
     # WORKSPACE target to configure the kubectl tool

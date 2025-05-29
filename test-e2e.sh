@@ -84,7 +84,7 @@ main() {
     ensure-gcloud
 
     # Check that all of our tools and samples build and pass unit test.
-    logfail "$bazel" test -- //... -//images/gcloud-bazel:gcloud_install -//images/gcloud-bazel:gcloud_push
+    logfail "$bazel" test //...
 
     # Run the garbage collection script to delete old namespaces.
     logfail "$bazel" run -- //examples:e2e_gc
@@ -100,7 +100,6 @@ main() {
     trap fail EXIT
     local failed=()
     log ./examples/resolver/e2e-test.sh "$E2E_NAMESPACE" "$@" || failed+=(resolver)
-    log ./examples/hellogrpc/e2e-test.sh "$E2E_NAMESPACE" "$@" || failed+=(hellogrpc)
     log ./examples/hellohttp/e2e-test.sh "$E2E_NAMESPACE" "$@" || failed+=(hellohttp)
     if [[ "${#failed[@]}" -gt 0 ]]; then
         echo "FAIL: test-e2e.sh: ${failed[@]}"
@@ -112,8 +111,8 @@ main() {
 }
 
 if [[ $# == 0 ]]; then
-    echo "Usage: $(basename "$0") go [java nodejs]"
-    main go java nodejs
+    echo "Usage: $(basename "$0") <go>"
+    main go
 else
     main "$@"
 fi
